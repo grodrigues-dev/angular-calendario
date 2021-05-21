@@ -1,3 +1,16 @@
-<div *ngFor="let dia of calendario" >
-    {{dia}}
-</div>
+<div class="row">
+  <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center">
+    <h4>Selecione a data:</h4>
+    <input type="date" name=""  class="mt-2 resp-input">
+  </div>
+  <div class="col-12 col-md-8">
+    <h4 class="mt-4 mb-4 text-center">{{ titleCalendario }}</h4>
+    <div class="resp-grid">
+      <p *ngFor="let dia of diasDaSemana" class="text-center">{{dia}}</p>
+
+      <p *ngFor="let dia of calendario" class="text-center" >
+          {{dia}}
+      </p>
+    </div>
+  </div>
+</div>  
