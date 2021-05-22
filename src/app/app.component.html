@@ -1,16 +1,20 @@
 <div class="row">
-  <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center">
-    <h4>Selecione a data:</h4>
-    <input type="date" name=""  class="mt-2 resp-input">
+  <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-center p-0">
+    <h4 class="mt-3">Selecione a data:</h4>
+    <input type="date" name="" [(ngModel)]="novaData" class="mt-2 resp-input">
+    <button class="btn btn-dark mt-3 resp-button" (click)="buscar()" >Buscar</button>
   </div>
-  <div class="col-12 col-md-8">
-    <h4 class="mt-4 mb-4 text-center">{{ titleCalendario }}</h4>
-    <div class="resp-grid">
-      <p *ngFor="let dia of diasDaSemana" class="text-center">{{dia}}</p>
-
-      <p *ngFor="let dia of calendario" class="text-center" >
-          {{dia}}
-      </p>
+  <div class="col-12 col-md-8 d-flex flex-column align-items-center p-0">
+    <div class="resp-container mt-3 p-2">
+      <h4 class="mt-4 text-center">{{ titleCalendario }}</h4>
+      <div class="resp-grid">
+        <p *ngFor="let dia of diasDaSemana" class="text-center m-2 p-1">{{dia}}</p>
+  
+        <p *ngFor="let dia of calendario" class="text-center m-2 p-1" 
+        [ngClass]="{'text-muted': !dia.mesAtual, 'resp-font-bold': dia.mesAtual, 'resp-today': dia.hoje }">
+            {{dia.data}}
+        </p>
+      </div>
     </div>
   </div>
 </div>  
