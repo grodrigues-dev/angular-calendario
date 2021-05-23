@@ -10,7 +10,8 @@ export class AppComponent implements OnInit{
   public dataSelecionada = new Date();  
   public calendario = [];
   private isMobile = screen.width < 500;
-  public novaData: string;
+  public novaData = new Date().toISOString().substring(0, 10);
+  public mostraLoader = false;
 
   ngOnInit(){
     const hoje =this.dataSelecionada.toLocaleDateString().split('/');
@@ -67,10 +68,13 @@ export class AppComponent implements OnInit{
   }
 
   buscar(): void {
-    console.log(this.novaData)
+    this.mostraLoader = true;
     const novaData = this.novaData.split('-');
     this.dataSelecionada = new Date(Number(novaData[0]), Number(novaData[1]) -1, Number(novaData[2]))
     this.montarCalendario(novaData[2], novaData[1], novaData[0]);
+    setTimeout(() => {
+      this.mostraLoader = false;
+    }, 700);
   }
 
 }

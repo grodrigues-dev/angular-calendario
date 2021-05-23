@@ -5,7 +5,8 @@
     <button class="btn btn-dark mt-3 resp-button" (click)="buscar()" >Buscar</button>
   </div>
   <div class="col-12 col-md-8 d-flex flex-column align-items-center p-0">
-    <div class="resp-container mt-3 p-2">
+    <div class="resp-container mt-3 p-2" [ngClass]="{'background-loader' : mostraLoader}"> 
+      <div class="loader" *ngIf="mostraLoader"></div>
       <h4 class="mt-4 text-center">{{ titleCalendario }}</h4>
       <div class="resp-grid">
         <p *ngFor="let dia of diasDaSemana" class="text-center m-2 p-1">{{dia}}</p>
